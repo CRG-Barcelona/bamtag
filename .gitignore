@@ -1,3 +1,5 @@
+.deps
+.deps/*
 *~
 bamtag
 autom4te.cache
