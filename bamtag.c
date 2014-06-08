@@ -352,7 +352,6 @@ char *cigar_string(bam1_t *b)
     if (c->n_cigar) 
     {
 	uint32_t *cigar = bam_get_cigar(b);
-	dyStringPrintf(ds, "%d;", c->n_cigar);
 	for (i = 0; i < c->n_cigar; ++i) 
 	{
 	    dyStringPrintf(ds, "%d", bam_cigar_oplen(cigar[i]));
@@ -360,7 +359,7 @@ char *cigar_string(bam1_t *b)
 	}
     }
     else
-	dyStringAppend(ds, "0;*");
+	dyStringAppendC(ds, '0');
     return dyStringCannibalize(&ds);
 }
 
